@@ -1,0 +1,18 @@
+<div class="header">
+  <h2>Task Manager</h2>
+  <%= link_to  "ADD NEW TASK",  tasks_new_path,  class: 'addBtn' %>
+</div>
+<div class= "container">
+<div class="row">
+    <ul id="myList">
+      <% @tasks.each do |task| %>
+        <li clas> <%= task.name %>
+           <%= link_to image_tag("https://cdn3.iconfinder.com/data/icons/glypho-free/64/pen-checkbox-128.png"), edit_task_path(task) %>
+           <%= link_to image_tag("https://cdn2.iconfinder.com/data/icons/flat-ui-icons-24-px/24/cross-24-512.png"), destroy_task_path(task), method: :delete, data: { confirm: "Are you sure?" } %> </li>
+      <% end %>
+    </ul>
+  </div>
+ </div>
+
+
+

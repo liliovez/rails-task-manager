@@ -1,0 +1,21 @@
+<div class = header>
+  <h2>Add new task</h2>
+  <!-- <input type="text" name="myTask" placeholder="What needs to be done...">
+  <button class="addBtn">ADD</button> -->
+  <form action="/tasks" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <input type="text" name="name" id="name" placeholder="New task...">
+    <input type="submit" class ="addBtn" value= "ADD">
+  </form>
+</div>
+<div class= "container">
+<div class="row">
+    <ul id="myList">
+      <% @tasks.each do |task| %>
+        <li> <%= task.name %>
+           <%= link_to image_tag("https://cdn3.iconfinder.com/data/icons/glypho-free/64/pen-checkbox-128.png"), edit_task_path(task) %>
+           <%= link_to image_tag("https://cdn2.iconfinder.com/data/icons/flat-ui-icons-24-px/24/cross-24-512.png"), destroy_task_path(task), method: :delete, data: { confirm: "Are you sure?" } %> </li>
+      <% end %>
+    </ul>
+  </div>
+ </div>

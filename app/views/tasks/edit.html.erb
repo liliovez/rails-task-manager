@@ -1,0 +1,14 @@
+<div class="header">
+  <h2>Task Manager</h2>
+  <form action="<%= update_task_path(@task) %>" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <input type="hidden" name="_method" value="patch" />
+    <input type="text" name="name" id="name" value="<%= @task.name %>">
+    <input type="submit">
+  </form>
+</div>
+
+
+
+
+
